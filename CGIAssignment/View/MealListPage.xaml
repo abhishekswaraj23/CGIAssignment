@@ -33,7 +33,6 @@
             </Label>
         </StackLayout>  
     </ViewCell>
-<!--<TextCell Text="{Binding Name}" Detail="{Binding Description}" TextColor="Blue" />-->
 </DataTemplate>
 </ListView.ItemTemplate>
 </local:ListView>
