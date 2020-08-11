@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CGIAssignment.View.MealDetailView" Title="Meal Detail">
+    <StackLayout>
+        <StackLayout Orientation="Vertical">
+        <Label Text="Meal Category : " FontSize="16" Margin="10,10,0,0" TextColor="DarkSlateBlue"/>
+        <Label Text="{Binding MealDetail.Category}" FontSize="20" Margin="30,0,0,0" TextColor="Blue"/>
+            </StackLayout>
+        <StackLayout Orientation="Vertical" >
+        <Label Text="Meal Name : " FontSize="16" Margin="10,10,0,0" TextColor="DarkSlateBlue"/>
+        <Label Text="{Binding MealDetail.Name}" FontSize="20" Margin="30,0,0,0" TextColor="Blue"/>
+            </StackLayout>
+        <StackLayout Orientation="Vertical">
+        <Label Text="Meal Description : " FontSize="16" Margin="10,10,0,0" TextColor="DarkSlateBlue"/>
+        <Label Text="{Binding MealDetail.Description}" FontSize="20" Margin="30,0,0,0" TextColor="Blue"/>
+            </StackLayout>
+        <StackLayout Orientation="Vertical">
+        <Label Text="Energy : " FontSize="16" Margin="10,10,0,0" TextColor="DarkSlateBlue"/>
+        <Label Text="{Binding MealDetail.Energy, StringFormat='{0:N} cal'}" FontSize="20" Margin="30,0,0,0" TextColor="Blue"/>
+            </StackLayout>
+
+        <Button Text="Go Back" Command="{Binding BackTapped}" Margin="0,0,0,10" Padding="10,10,10,10" MinimumWidthRequest="600" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="DeepSkyBlue" TextColor="Black"/>
+    </StackLayout>
+</ContentPage>

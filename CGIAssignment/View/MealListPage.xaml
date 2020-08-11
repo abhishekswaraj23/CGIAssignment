@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CGIAssignment.View.MealListPage"
+    xmlns:local="clr-namespace:CGIAssignment.Utils"
+    Title="Meal List">
+<ContentPage.Resources>    
+<ResourceDictionary>    
+<local:EnergyConverter x:Key="energyConverter"/>    
+</ResourceDictionary>    
+</ContentPage.Resources> 
+
+<local:ListView x:Name="items" ItemsSource="{Binding MealList}" HasUnevenRows="True" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Category}" ItemClickCommand="{Binding ItemTapped}">
+<ListView.ItemTemplate>
+<DataTemplate>
+<ViewCell>
+    <ViewCell.ContextActions>
+<MenuItem  Command="{Binding Path=BindingContext.DeleteItemTapped,Source={x:Reference Name=items}}" CommandParameter="{Binding .}"  Text="Delete" IsDestructive="True" />
+</ViewCell.ContextActions>
+        <StackLayout Orientation="Horizontal">  
+            <Label Text="{Binding Name}" Margin="20,10,0,10" FontSize="16">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Energy, Converter={StaticResource energyConverter}}" Value="R">
+                        <Setter Property="TextColor" Value="Red"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Energy,Converter={StaticResource energyConverter}}" Value="B">
+                        <Setter Property="TextColor" Value="Blue"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Energy,Converter={StaticResource energyConverter}}" Value="G">
+                        <Setter Property="TextColor" Value="Green"/>
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </StackLayout>  
+    </ViewCell>
+<!--<TextCell Text="{Binding Name}" Detail="{Binding Description}" TextColor="Blue" />-->
+</DataTemplate>
+</ListView.ItemTemplate>
+</local:ListView>
+
+</ContentPage>
